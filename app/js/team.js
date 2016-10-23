@@ -27,8 +27,6 @@ angular.module('teamform-team-app', ['firebase'])
 		"teamMembers" : []
 	};
 		
-	
-
 	refPath =  eventName + "/admin";
 	retrieveOnceFirebase(firebase, refPath, function(data) {	
 
