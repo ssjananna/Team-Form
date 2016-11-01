@@ -77,4 +77,16 @@ angular.module('teamform-index-app', ['firebase', 'ngMaterial'])
             console.log('no user is signed in');
         }
     });
+
+
+    /* events */
+    var eventRef = firebase.database().ref();
+
+    var eventObj = $firebaseObject(eventRef);
+    eventObj.$bindTo($scope, "events");
+
+    // open the admin page for editing the event
+    $scope.editEvent = function(eventName) {
+        $window.open("admin.html?q="+eventName, "_self");
+    };
 });
