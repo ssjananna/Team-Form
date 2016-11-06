@@ -76,6 +76,9 @@ angular.module("teamform-team-app", ["firebase", "ngMaterial"])
     var eventTeamMembersRef = eventTeamRef.child("teamMembers");
     $scope.members = $firebaseArray(eventTeamMembersRef);
 
+    var skillsRef = eventTeamRef.child("skills");
+    $scope.skills = $firebaseArray(skillsRef);
+
 
     var eventTeamMemberRequestsRef = eventRef.child("member");
     var eventTeamMemberRequestsArray = $firebaseArray(eventTeamMemberRequestsRef);
@@ -137,5 +140,20 @@ angular.module("teamform-team-app", ["firebase", "ngMaterial"])
         // decrease the current team size by 1
         eventTeamRef.update({currentTeamSize: $scope.currentTeamSize - 1});
         $scope.currentTeamSize -= 1;
+    };
+
+
+    // add skill function
+    $scope.addSkill = function() {
+        var skillsArray = $firebaseArray(skillsRef);
+
+        skillsArray.$loaded().then(function(skills) {
+            var skill = {};
+            skill[skills.length.toString()] = $scope.skillInput;
+
+            skillsRef.update(skill);
+
+            $scope.skillInput = null;
+        });
     };
 });

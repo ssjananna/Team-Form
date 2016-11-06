@@ -47,6 +47,21 @@
             <button ng-click="changeCurrentTeamSize(-1)"><span class="glyphicon glyphicon-minus"></span></button>
         </div>
 
+        <div>
+            <span>Preferred skills:</span>
+            <ul>
+                <li ng-repeat="skill in skills">{{skill.$value}}</li>
+            <ul>
+        </div>
+
+        <form>
+            <md-input-container>
+                <label>Preferred skills</label>
+                <input ng-model="skillInput">
+            </md-input-container>
+            <md-button ng-click="addSkill()" class="md-raised">Add Skill</md-button>
+        </form>
+
         <p>Team members ({{currentTeamSize}}):</p>
         <button ng-repeat="member in members" ng-click="removeMember(member)">{{member.name}}</button>
 
