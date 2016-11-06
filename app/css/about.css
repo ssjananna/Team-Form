@@ -1,0 +1,14 @@
+.aboutTitle {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 20px;
+    border-bottom: solid 1px rgba(193, 193, 193, 0.56);
+}
+
+.list {
+    font-size: 20px;
+}
+
+.text-align-center {
+    text-align: center;
+}
