@@ -1,10 +1,6 @@
 $(document).ready(function() {
-    $('#admin_page_controller').hide();
-    $('#text_event_name').text("Error: Invalid event name ");
-    var eventName = getURLParameter("q");
-    if (eventName != null && eventName !== '') {
-        $('#text_event_name').text("Event name: " + eventName);
-    }
+    // change the title in the navigation to the event name
+    $(".mdl-layout>.mdl-layout__header>.mdl-layout__header-row>.mdl-layout__title").html(getURLParameter("event") + " Event Admin");
 });
 
 angular.module("teamform-admin-app", ["firebase", "ngMaterial", "ngMessages"])
@@ -16,7 +12,7 @@ angular.module("teamform-admin-app", ["firebase", "ngMaterial", "ngMessages"])
     // Call Firebase initialization code defined in site.js
     initializeFirebase();
     var refPath, ref, eventName;
-    eventName = getURLParameter("q");
+    eventName = getURLParameter("event");
     refPath = eventName + "/admin/param";
     ref = firebase.database().ref("events/" + refPath);
     // Link and sync a firebase object
@@ -101,4 +97,9 @@ angular.module("teamform-admin-app", ["firebase", "ngMaterial", "ngMessages"])
         ref.update({'startDate': $scope.startDate.getTime(), 'endDate': $scope.endDate.getTime(),
             'details': $scope.details});
     };
+})
+.config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+    .primaryPalette('orange')
+    .accentPalette('indigo');
 });
