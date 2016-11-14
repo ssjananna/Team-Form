@@ -15,12 +15,11 @@ function getAvailableTeam(teams) {
 /**
  * filter members that do not have a team yet
  *
- * @param array of members
+ * @param members array of members
  * @return filtered members
  */
-
 function hasNoTeam(member){
-	return team===undefined;
+	return member.team===undefined;
 }
 function membersWithNoTeam(members){
 	return members.filter(hasNoTeam);
