@@ -45,9 +45,15 @@ describe('Test common_test.js', function() {
         		uid: "456",
         		skills: ["php"],
         		team: undefined,
+        	},
+			{
+        		name: "RandomGirl",
+        		uid: "678",
+        		skills: ["Java"],
+        		
         	}];
 
-            var noTeam = memberWithNoTeam(members);
+            var noTeam = membersWithNoTeam(members);
             var expected = [{
 				name: "RandomGuy",
         		uid: "456",
