@@ -1,7 +1,11 @@
-/*
-- function (input: preferred skills of a team, skills already satisfied by other members, skills of the current user,
-			output: number of missing skills matched)
-*/
+/**
+ * calculate the number of missing skills matched
+ *
+ * @param preferredSkills preferred skills of a team
+ * @param foundSkills skills that the team have already
+ * @param currentSkills skills of the signed in user
+ * @return missing skills matched and number of missing skills matched
+ */
 function missingSkillsMatched(preferredSkills, foundSkills, currentSkills){
 	var missingSkillsArray = preferredSkills.filter(
 	function(each){
@@ -15,15 +19,10 @@ function missingSkillsMatched(preferredSkills, foundSkills, currentSkills){
 	);
 	var missingSkillsMatchedArray = missingSkillsArray.filter(
 	function(each2){
-		for (var i=0;i<currentSkills.length;i++){
-			if(each2==currentSkills[i]){
-				return true;
-			}
-		}
-		return false;
+		currentSkills.includes(each2);
 	}
 	);
-	return missingSkillsMatchedArray;
+	(return {match: missingSkillsMatchedArray, number:missingSkillsMatchedArray.length};);
 }
 
 

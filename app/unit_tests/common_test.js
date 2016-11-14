@@ -23,7 +23,8 @@ describe('Test common_test.js', function() {
 
             var missingMatched = missingSkillsMatched(team.preferredSkills, team.foundSkills, user.skills);
             var expected = ["php"];
-            expect(matched).toEqual(expected);
+            expect(missingMatched.match).toEqual(expected);
+			expect(missingMatched.number).toEqual(1);
         });
 
     });
