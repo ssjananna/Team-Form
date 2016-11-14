@@ -8,18 +8,13 @@
  */
 function missingSkillsMatched(preferredSkills, foundSkills, currentSkills){
 	var missingSkillsArray = preferredSkills.filter(
-	function(each){
-		for (var i=0;i<foundSkills.length;i++){
-			if(each!=foundSkills[i]){
-				return true;
-			}
-		}
-		return false;
+	function(preferredSkill){
+		return !foundSkills.includes(preferredSkill);
 	}
 	);
 	var missingSkillsMatchedArray = missingSkillsArray.filter(
-	function(each2){
-		currentSkills.includes(each2);
+	function(missingSkill){
+		return currentSkills.includes(missingSkill);
 	}
 	);
 	(return {match: missingSkillsMatchedArray, number:missingSkillsMatchedArray.length};);
