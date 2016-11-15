@@ -11,6 +11,10 @@ module.exports = function(config) {
             'lib/angular-mocks.js',
             'lib/firebase.js',
             'lib/angularfire.min.js',
+            'lib/angular-animate.min.js',
+            'lib/angular-aria.min.js',
+            'lib/angular-material.min.js',
+            'lib/angular-messages.min.js',
             'js/*.js',
             'unit_tests/*.js'
         ],
