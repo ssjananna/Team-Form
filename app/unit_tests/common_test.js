@@ -39,12 +39,6 @@ describe('Test common', function() {
         		skills: ["C++"],
         		team: "404-notfound",
         	},
-        	{
-        		name: "RandomGuy",
-        		uid: "456",
-        		skills: ["php"],
-        		team: undefined,
-        	},
 			{
         		name: "RandomGirl",
         		uid: "678",
@@ -53,18 +47,39 @@ describe('Test common', function() {
         	}];
 
             var noTeam = membersWithNoTeam(members);
-            var expected = [{
-				name: "RandomGuy",
-        		uid: "456",
-        		skills: ["php"],
-        		team: undefined,
-			},
+            var expected = [
 			{
         		name: "RandomGirl",
         		uid: "678",
         		skills: ["Java"],
 
         	}];
+
+            expect(noTeam).toEqual(expected);
+        });
+		
+		it('returns members who have an undefined team', function() {
+        	var members = [
+        	{
+        		name: "Shermin",
+        		uid: "123",
+        		skills: ["C++"],
+        		team: "404-notfound",
+        	},
+        	{
+        		name: "RandomGuy",
+        		uid: "456",
+        		skills: ["php"],
+        		team: undefined,
+        	}];
+
+            var noTeam = membersWithNoTeam(members);
+            var expected = [{
+				name: "RandomGuy",
+        		uid: "456",
+        		skills: ["php"],
+        		team: undefined,
+			}];
 
             expect(noTeam).toEqual(expected);
         });
