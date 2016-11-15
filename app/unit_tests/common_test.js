@@ -140,4 +140,33 @@ describe('Test common', function() {
             expect(noTeam).toEqual(expected);
         });
     });
+
+
+    // A test case of teams with insufficient members 
+    describe('insufficientMemberTeams Coverage Test', function() {
+
+        it('returns uid of all members in teams with insufficient members', function() {
+            var teams =[{
+
+                currentTeamSize: 1,
+                size: 5,
+                preferredSkills: ["C++", "java", "php"],
+                teamMembers:[{name:"Shermin", uid:"shermin"}]
+            },
+
+              {
+
+                currentTeamSize: 2,
+                size: 5,
+                preferredSkills: ["C++", "java", "php"],
+                teamMembers:[{name:"Man", uid:"man"},
+                {name:"Andrew", uid:"andrew"}]
+            }];
+
+            var matched = insufficientMemberTeams(teams);
+            var expected = ["shermin","man","andrew"];
+            expect(matched).toEqual(expected);
+        });
+
+    });
 });
