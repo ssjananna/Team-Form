@@ -28,7 +28,8 @@ module.exports = function(config) {
             'js/member.js' : ['coverage'],
             'js/user.js': ['coverage'],
             'js/eventteam.js': ['coverage'],
-            'js/common.js': ['coverage']
+            'js/common.js': ['coverage'],
+            'js/about.js': ['coverage']
         },
         reporters: ['progress', 'coverage'],
         coverageReporter: {
