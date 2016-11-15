@@ -83,6 +83,10 @@ describe("Team Controller", function() {
         $firebaseObject = _$firebaseObject_;
         $firebaseArray = _$firebaseArray_;
     }));
+    
+    afterEach(function() {
+        firebase.app().delete();
+    });
 
     describe("$scope.changeCurrentTeamSize", function() {
         var $scope, controller;
@@ -103,15 +107,15 @@ describe("Team Controller", function() {
             expect($scope.size).toEqual(6);
         });
 
-        // it("decrease size", function() {
-        //     $scope.size = 5;
-        //     $scope.currentTeamSize = 4;
-        //     $scope.minTeamSize = 1;
-        //     $scope.maxTeamSize = 10;
-        //
-        //     $scope.changeCurrentTeamSize(-1);
-        //
-        //     expect($scope.size).toEqual(4);
-        // });
+        it("decrease size", function() {
+            $scope.size = 5;
+            $scope.currentTeamSize = 4;
+            $scope.minTeamSize = 1;
+            $scope.maxTeamSize = 10;
+
+            $scope.changeCurrentTeamSize(-1);
+
+            expect($scope.size).toEqual(4);
+        });
     });
 });
