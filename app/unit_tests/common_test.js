@@ -80,7 +80,7 @@ describe('Test common', function() {
             var expected = ["C++","php"];
             
             expect(matched.match).toEqual(expected);
-            expect(matched.number).toEqual(1);
+            expect(matched.number).toEqual(2);
         });
     });
 

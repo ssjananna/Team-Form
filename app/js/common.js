@@ -32,8 +32,8 @@ function missingSkillsMatched(preferredSkills, foundSkills, currentSkills){
 		return currentSkills.includes(missingSkill);
 	}
 	);
-	(return {match: missingSkillsMatchedArray, number:missingSkillsMatchedArray.length};);
-}
+	return {match: missingSkillsMatchedArray, number:missingSkillsMatchedArray.length};
+	}
 
 
 /**
