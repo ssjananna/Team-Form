@@ -1,5 +1,5 @@
-describe("Team Controller", function() {
-    beforeEach(module("teamform-team-app"));
+describe("Admin Controller", function() {
+    beforeEach(module("teamform-admin-app"));
 
     var $controller, $firebaseObject, $firebaseArray;
 
@@ -14,12 +14,12 @@ describe("Team Controller", function() {
         firebase.app().delete();
     });
 
-    describe("$scope.changeCurrentTeamSize", function() {
+    describe("$scope.changeCurrentAdminSize", function() {
         var $scope, controller;
 
         beforeEach(function() {
             $scope = {};
-            controller = $controller("TeamCtrl", {$scope: $scope, $firebaseObject: $firebaseObject, $firebaseArray: $firebaseArray});
+            controller = $controller("AdminCtrl", {$scope: $scope, $firebaseObject: $firebaseObject, $firebaseArray: $firebaseArray});
         });
     });
 });
