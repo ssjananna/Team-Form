@@ -34,7 +34,10 @@ module.exports = function(config) {
         coverageReporter: {
             type: 'html',
             dir: 'coverage/',
-            subdir: '.'
+            subdir: '.',
+            instrumenterOptions: {
+                istanbul: { noCompact: true }
+            }
         },
         port: 8080,
         colors: true,
