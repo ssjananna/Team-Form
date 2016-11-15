@@ -29,6 +29,34 @@ describe('Test common', function() {
     });
 
 
+    // A test case of missingSkillsMatched
+    describe('missingSkillsMatched Coverage Test', function() {
+
+        it('returns match of missing skills of team and skills of user', function() {
+            var team = {
+
+                currentTeamSize: 1,
+                size: 5,
+                preferredSkills: ["C++", "java", "php"],
+                teamMembers:[{name:"Shermin", uid:"blah", skills:"C++"}],
+                foundSkills: ["C++"],
+            };
+
+            var user ={
+                name:"Pooja",
+                uid:"meh",
+                skills:["C++","php"],
+            };
+
+            var missingMatched = missingSkillsMatched(team.preferredSkills, team.foundSkills, user.skills);
+            var expected = ["php"];
+            expect(missingMatched.match).toEqual(expected);
+            expect(missingMatched.number).toEqual(1);
+        });
+
+    });
+
+
     // A test case of MembersWithNoTeam
     describe('MembersWithNoTeam Coverage Test', function() {
         it('returns members who do not have a team yet', function() {
