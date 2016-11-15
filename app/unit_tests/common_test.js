@@ -1,4 +1,4 @@
-describe('Test common_test.js', function() {
+describe('Test common', function() {
     // A test case of getAvailableTeam
     describe('getAvailableTeam Coverage Test', function() {
         it('returns available teams from a list of teams', function() {
@@ -25,6 +25,48 @@ describe('Test common_test.js', function() {
 			}];
 
             expect(answer).toEqual(expected);
+        });
+    });
+
+
+    // A test case of MembersWithNoTeam
+    describe('MembersWithNoTeam Coverage Test', function() {
+        it('returns members who do not have a team yet', function() {
+        	var members = [
+        	{
+        		name: "Shermin",
+        		uid: "123",
+        		skills: ["C++"],
+        		team: "404-notfound",
+        	},
+        	{
+        		name: "RandomGuy",
+        		uid: "456",
+        		skills: ["php"],
+        		team: undefined,
+        	},
+			{
+        		name: "RandomGirl",
+        		uid: "678",
+        		skills: ["Java"],
+
+        	}];
+
+            var noTeam = membersWithNoTeam(members);
+            var expected = [{
+				name: "RandomGuy",
+        		uid: "456",
+        		skills: ["php"],
+        		team: undefined,
+			},
+			{
+        		name: "RandomGirl",
+        		uid: "678",
+        		skills: ["Java"],
+
+        	}];
+
+            expect(noTeam).toEqual(expected);
         });
     });
 });
