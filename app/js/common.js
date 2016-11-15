@@ -71,3 +71,24 @@ function hasNoTeam(member){
 function membersWithNoTeam(members){
 	return members.filter(hasNoTeam);
 }
+
+
+function insufficientMemberTeams(teams)
+{
+    var insufficentTeams = getAvailableTeam(teams);
+
+    //if(insufficentTeams.length===0)
+        //return;
+
+    var uids ;
+    for( i=0; i<insufficentTeams.length; i++)
+    {
+        for(var j=0; j<insufficentTeams[i].teamMembers.length; j++)
+        {
+            uids.push(insufficentTeams[i].teamMembers[j].uid);
+
+        }
+    }
+    return uids;
+
+}
